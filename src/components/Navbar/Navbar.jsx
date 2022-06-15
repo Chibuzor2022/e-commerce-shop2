@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { AppBar, Toolbar, IconButton, Badge, MenuItem, Menu, Typography } from '@material-ui/core';
+import { AppBar, Toolbar, IconButton, MenuItem, Badge, Menu, Typography } from '@material-ui/core';
 import { ShoppingCart } from '@material-ui/icons';
 import { Link, useLocation } from 'react-router-dom';
-
 import logo from '../../assets/commerce.png';
 import useStyles from './styles';
+
 
 const PrimarySearchAppBar = ({ totalItems }) => {
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
@@ -21,7 +21,7 @@ const PrimarySearchAppBar = ({ totalItems }) => {
     <Menu anchorEl={mobileMoreAnchorEl} anchorOrigin={{ vertical: 'top', horizontal: 'right' }} id={mobileMenuId} keepMounted transformOrigin={{ vertical: 'top', horizontal: 'right' }} open={isMobileMenuOpen} onClose={handleMobileMenuClose}>
       <MenuItem>
         <IconButton component={Link} to="/cart" aria-label="Show cart items" color="inherit">
-          <Badge badgeContent={totalItems} color="primary">
+          <Badge badgeContent={totalItems} color="primary" overlap="rectangular">
             <ShoppingCart />
           </Badge>
         </IconButton>
@@ -41,7 +41,7 @@ const PrimarySearchAppBar = ({ totalItems }) => {
           {location.pathname === '/' && (
           <div className={classes.button}>
             <IconButton component={Link} to="/cart" aria-label="Show cart items" color="inherit">
-              <Badge badgeContent={totalItems} color="primary">
+              <Badge badgeContent={totalItems} color="primary" overlap="rectangular">
                   <ShoppingCart />
                   
               </Badge>
@@ -54,6 +54,9 @@ const PrimarySearchAppBar = ({ totalItems }) => {
     </>
   );
 };
+
+
+
 
 export default PrimarySearchAppBar;
 
